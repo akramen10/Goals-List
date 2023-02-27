@@ -1,45 +1,48 @@
-import {useState} from'react'
-import {StyleSheet, View, TextInput, Button } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, View, TextInput, Button } from "react-native";
 
 function GoalInput(props) {
-    const [enteredGoalText, setEnteredGoalText] = useState('');
+  const [enteredGoalText, setEnteredGoalText] = useState("");
 
-    function goalInputerHandler(enteredText) {
-        setEnteredGoalText(enteredText);
-    }
+  function goalInputerHandler(enteredText) {
+    setEnteredGoalText(enteredText);
+  }
 
-    function addGoalHandler() {
-        props.onAddGoal(enteredGoalText);
-        setEnteredGoalText('');
-    }
+  function addGoalHandler() {
+    props.onAddGoal(enteredGoalText);
+    setEnteredGoalText("");
+  }
 
-   return(  
-   <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder='Your course goal!' onChangeText={goalInputerHandler} value={enteredGoalText} />
-        <Button title="Add Goal" onPress={addGoalHandler}/>
+  return (
+    <View style={styles.inputContainer}>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Your course goal!"
+        onChangeText={goalInputerHandler}
+        value={enteredGoalText}
+      />
+      <Button title="Add Goal" onPress={addGoalHandler} />
     </View>
-
-   );
+  );
 }
 
 export default GoalInput;
 
 const styles = StyleSheet.create({
-    
-      textInput: {
-        borderWidth: 1,
-        borderColor:'#cccccc',
-        width: '70%',
-        marginRight: 8,
-        padding: 8
-      },
-      inputContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor: '#cccccc'
-      },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    width: "70%",
+    marginRight: 8,
+    padding: 8,
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
+  },
 });
